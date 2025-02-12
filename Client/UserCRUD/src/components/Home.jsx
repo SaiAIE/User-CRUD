@@ -66,6 +66,7 @@ const Home = () => {
         } else{
             setFilteredUsers(users.filter((user)=>
             user.name.toLowerCase().includes(search.toLowerCase()) ||
+            user.gender.toLowerCase().includes(search.toLowerCase())||
             user.email.toLowerCase().includes(search.toLowerCase()) ||
             (user.phone && user.phone.includes(search) ||
             user.age.toString().includes(search)
