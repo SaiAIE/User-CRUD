@@ -8,7 +8,11 @@ dotenv.config()
 connectDB()
 
 const app = express()
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: 'https://user-crud-r6qj.onrender.com'
+  }));
+  
 app.use(express.json())
 app.use("/api/users",userRoutes)
 
