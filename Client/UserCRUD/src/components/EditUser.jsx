@@ -12,7 +12,13 @@ const EditUser = () => {
     const API=import.meta.env.VITE_API
 
     useEffect(()=>{
-        axios.get(`${API}/api/users/${id}`)
+      const token = localStorage.getItem("token")
+        axios.get(`${API}/api/users/${id}`,{
+          headers:{
+            Authorization: `Bearer ${token}`,
+            "Content-Type":"application/json"
+          }
+        })
         .then((res)=>setUser(res.data.details))
         .catch((err)=>console.log(err))
     },[id])
@@ -23,7 +29,13 @@ const EditUser = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.put(`${API}/api/users/${id}`,user)
+        const token=localStorage.getItem("token")
+        axios.put(`${API}/api/users/${id}`,user,{
+          headers:{
+            Authorization:`Bearer ${token}`,
+            "Content-Type":"application/json"
+          }
+        })
         .then(()=>navigate('/'))
         .catch((err)=>console.log(err))
     }
@@ -34,7 +46,7 @@ const EditUser = () => {
       <Form onSubmit={handleSubmit} className='d-flex justify-content-center flex-column align-items-center p-2'>
         <Form.Group className='p-2'>
                     <Form.Label>Name:</Form.Label>
-                    <Form.Control type="text" name="name" value={user.name} onChange={handleChange} />
+                    <Form.Control type="text" name="name" value={user.name} onChange={handleChange} placeholder={user.name}/>
                 </Form.Group>
         <Form.Group className='p-2'>
                     <Form.Label>Email:</Form.Label>

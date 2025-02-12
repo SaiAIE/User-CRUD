@@ -22,13 +22,20 @@ const AddUser = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        axios.post(`${API}/api/users`,user)
-        .then(()=>navigate("/"))
+        const token = localStorage.getItem("token")
+        axios.post(`${API}/api/users`,user,{
+            headers:{
+            Authorization:`Bearer ${token}`,
+            'Content-Type':"application/json"
+        }
+        })
+        .then(()=>{alert("User Added Successfully");navigate("/")})
         .catch((err)=>{
             if(err.response && err.response.status === 400){
                 alert(err.response.data.message)
             }
             else{
+                alert(err.message)
                 console.log(err.message)
             }
             })
