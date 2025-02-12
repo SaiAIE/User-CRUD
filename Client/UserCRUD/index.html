@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vite + React</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      h2,h3{
+        font-weight: 600;
+      }
+      body{
+        font-family: "Edu AU VIC WA NT Hand", serif;
+      }
+      .btn-warning{
+        border-color: green;
+        background: rgb(35, 150, 0);
+        color: white;
+      }
+      .btn-warning:hover{
+  background: green;
+  border-color: green;
+  color: white;
+}
+.searchbar{
+  max-width: 700px;
+}
+@media (max-width:768px){
+  .tablediv{
+    padding: 0px 30px;
+  }
+  .table-responsive{
+    overflow-x: auto;
+    border: 1px solid grey;
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+  .btn{
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  th,td{
+    white-space: nowrap;
+  }
+  .adduser,.edituser{
+    max-width: 400px;
+    padding: 10px;
+  }
+}
+    </style>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
