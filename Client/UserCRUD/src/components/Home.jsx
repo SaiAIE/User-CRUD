@@ -37,7 +37,7 @@ const Home = () => {
             headers:{Authorization: `Bearer ${token}`}
         })
         .then((res)=>{setUsers(res.data.details);setFilteredUsers(res.data.details);setLoading(false)})
-        .catch((err)=>{console.log(err),alert(err.message),setLoading(false)})
+        .catch((err)=>{console.log(err),setLoading(false)})
     },[])
 
     const logout = ()=>{
@@ -85,7 +85,7 @@ const Home = () => {
         />
       <div className='table-responsive'>
         {loading ? (
-            <div className='text-center'>
+            <div className='d-flex justify-content-center align-items-center' style={{minHeight:"50vh"}}>
                 <div className='spinner-border text-primary' role="status">
                     <span className='visually-hidden'>Loading...</span>
                 </div>
